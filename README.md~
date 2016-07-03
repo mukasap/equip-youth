@@ -2,9 +2,6 @@
 
 ##Prerequisits
 imageMagic installed on server.
-``sudo add-apt-repository main``
-``sudo add-apt-repository universe``
-``sudo apt-get update``
 ``sudo apt-get install imagemagick``
 
 
