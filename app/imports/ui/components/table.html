@@ -1,0 +1,14 @@
+<template name="widgetTable">
+	<table class="table bordered highlight">
+    <thead class="green lighten-5">
+      <tr class="">      	
+      	{{#each columns}}
+			<th>{{this}}</th>
+		{{/each}}
+      </tr>
+    </thead>
+    <tbody>
+      {{> UI.contentBlock}}
+    </tbody>
+  </table>	
+</template>

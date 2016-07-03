@@ -1,0 +1,23 @@
+<template name="home">
+	Welcome
+	<a href="" class="green lighten-1 waves-effect waves-light btn">Test</a>
+	<p>
+  {{#each images}}
+  		<div class="col s2">
+  			{{#imageEditor}}
+  			<img src="{{url store="thumbnail"}}" alt="" >
+  		{{/imageEditor}}
+  		</div>
+  		
+
+         <!--  <img src="{{url}}" alt="">
+          <img src="{{url store="display-image"}}" alt="">
+          <img src="{{url store="thumbnail"}}" alt=""> -->
+          <input type="button" value="remove" class="btnRemove"/>
+      {{else}}
+          No files uploaded.
+  {{/each}}
+  </p>
+  <p>Upload profile pic:</p>
+  {{> widgetUploader icon="add_a_photo" type="cover-image" collection="course" id="123"}}
+</template>

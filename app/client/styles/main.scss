@@ -1,0 +1,14 @@
+// If you want to override materialize sass variables you can uncomment the following:
+ @import "{poetic:materialize-scss}/sass/components/_color.scss";
+ $primary-color-dark:   #388E3C;
+ $primary-color: #388E3C;
+ $primary-color-light:  #C8E6C9;
+ $primary-color-text:   #FFFFFF;
+ $accent-color:         #8BC34A;
+ $primary-text-color:   #212121;
+ $secondary-text-color: #727272;
+ $divider-color:        #B6B6B6;
+ //$link-color: red;
+
+// import main scss file
+@import "{poetic:materialize-scss}/sass/materialize.scss";

@@ -1,0 +1,20 @@
+<template name="widgetCard">
+	<div class="card {{color}} hoverable">
+			<span class="card-title {{textColor}}">
+				{{#if icon}}
+				<i class="material-icons">{{icon}}</i>
+				{{/if}}
+				{{title}}
+			</span>
+            <div class="card-content {{textColor}}">              
+               {{> UI.contentBlock}}
+            </div>
+            {{#if action}}
+            <div class="card-action">
+              <a href="{{pathFor link}} ">{{action}}</a>
+              <!-- <a href="#">This is a link</a> -->
+              <span class="right grey-text">Equip Youth Africa</span>
+            </div>
+            {{/if}}
+          </div>
+</template>

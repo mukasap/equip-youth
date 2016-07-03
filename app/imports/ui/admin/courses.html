@@ -1,0 +1,73 @@
+<template name="courses">
+	{{> breadcrumbCourses }}
+
+  	{{#widgetCard icon="grid" title="Courses" color=""  textColor="" action="Back" link="admin"}}
+  		<!-- table here -->
+  		{{#widgetTable cols="Name, Summary, Options"}}
+  			{{#each courses}}
+				<tr>
+					<td>{{name}}</td>
+					<td>{{truncate summary 50}}</td>
+					<td>
+						<a href="{{pathFor 'courses.edit'}}">Edit</a>
+						<a href="#" class="js-delete">Delete</a>
+					</td>
+				</tr>
+			{{/each}}
+  		{{/widgetTable}}
+  	{{/widgetCard}}
+</template>
+
+<template name="coursesAdd">
+	{{> breadcrumbCourses link="Add"}}
+
+	{{#widgetCard icon="grid" title="Add New Course"  action="Back" link="courses"}}
+  		{{> quickForm collection="Courses" id="insertCourse" type="method" meteormethod="course.insert" omitFields="createdAt, image, meta, slug"}}
+  	{{/widgetCard}}
+</template>
+
+<template name="coursesEdit">
+	{{> breadcrumbCourses link=name}}
+
+	{{#widgetCard icon="grid" title="Edit Course" action="Back" link="courses"}}
+    <div class="row">
+      <div class="col s8">
+        {{> quickForm collection="Courses" id="updateCourse" doc=this type="method-update" meteormethod="course.update" omitFields="createdAt, image, meta, slug"}}
+      </div>
+      <div class="col s4">
+        <div class="card">
+            <div class="card-image">
+              <img src="images/sample-1.jpg">
+              <span class="card-title">Card Title</span>
+            </div>
+            <div class="card-content">
+              <p>I am a very simple card. I am good at containing small bits of information.
+              I am convenient because I require little markup to use effectively.</p>
+            </div>
+            <div class="card-action">
+              {{> widgetUploader icon="add_a_photo" type="cover-image" collection="course" id=_id}}
+            </div>
+          </div>
+      </div>
+    </div>
+		
+	{{/widgetCard}}
+</template>
+
+<template name="breadcrumbCourses">
+	<nav>
+    <div class="nav-wrapper {{color}}">
+      <div class="col s12">
+        <a href="{{pathFor 'admin'}}" class="breadcrumb">Admin</a>
+        {{#if link}}
+        	<a href="{{pathFor 'courses'}}" class="breadcrumb">Courses</a>
+        	<a href="#" class="breadcrumb lime-text">{{link}}</a>
+        	<a href="{{pathFor 'courses'}}" class="btn-floating btn-large waves-effect waves-light right lime " style="margin-top:35px;"><i class="material-icons">keyboard_backspace</i></a>
+        {{else}}
+        	<a href="{{pathFor 'courses'}}" class="breadcrumb lime-text">Courses</a>
+        	<a href="{{pathFor 'courses.add'}}" class="btn-floating btn-large waves-effect waves-light right lime " style="margin-top:35px;"><i class="material-icons">add</i></a>
+        {{/if}}
+      </div>
+    </div>
+  </nav>
+</template>
