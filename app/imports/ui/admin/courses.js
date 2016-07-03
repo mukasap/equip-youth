@@ -31,6 +31,7 @@ insertCourse: {
     onSuccess: function () {
       Router.go('courses');
       // FlashMessages.sendSuccess('Course Added');
+      Materialize.toast('Course Added', 3000, 'blue');
       return false;
     }
   },
